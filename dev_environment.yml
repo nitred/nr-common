@@ -1,0 +1,9 @@
+name: nr-common
+channels:
+  - defaults
+dependencies:
+- python=3.6.3
+- pip:
+  - future
+  - twine
+  - m2r
