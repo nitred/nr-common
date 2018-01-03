@@ -1,5 +1,5 @@
 # nr-common
-[![Build Status](https://travis-ci.org/username/nr-common.svg?branch=master)](https://travis-ci.org/username/nr-common)
+[![Build Status](https://travis-ci.org/nitred/nr-common.svg?branch=master)](https://travis-ci.org/nitred/nr-common)
 
 Common python functionalities aimed to be at least compatible with Python3.
 
