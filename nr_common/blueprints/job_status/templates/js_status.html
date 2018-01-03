@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('draw.static', filename='styles.css') }}" />
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+
+    <div>
+        <h1>Job Status!</h1>
+    </div>
+
+    <div>
+        <form action="{{ url_for('job_status.index') }}" >
+            <input type="submit" value="Go Back" />
+        </form>
+        </br>
+    </div>
+
+    <div>
+        <table style="table-layout: fixed;" border="1">
+            <thead>
+                <tr>
+                    <th width="50">SNo.</th>
+                    <th width="100">Job ID</th>
+                    <th width="100">Job UUID</th>
+                    <th width="100">Job Name</th>
+                    <th width="100">Job Status</th>
+                    <th width="400">Task Details</th>
+                </tr>
+            </thead>
+
+            {% for job in jobs %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ job.id }}</td>
+                    <td>{{ job.uuid[:8] }}</td>
+                    <td>{{ job.name }}</td>
+                    <td>{{ job.status }}</td>
+
+                    <td>
+                        <table style="table-layout: fixed;" border="1">
+                            <thead>
+                                <th width="100">Task ID</th>
+                                <th width="100">Task UUID</th>
+                                <th width="100">Task Name</th>
+                                <th width="100">Task Status</th>
+                            </thead>
+
+                            {% for task in job.tasks %}
+                                <tr>
+                                    <td>{{ task.id }}</td>
+                                    <td>{{ task.uuid[:8] }}</td>
+                                    <td style="text-align: left">{{ task.name }}</td>
+                                    <td>{{ task.status }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+<script>
+    {% if is_reload == 'True' %}
+        setTimeout(function(){
+            window.location.href="{{ url_for('draw.status', page_id=page_id) }}"
+        },3500);
+    {% endif %}
+</script>
+
+</body>
+</html>

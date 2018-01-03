@@ -9,7 +9,6 @@ Common python functionalities aimed to be at least compatible with Python3.
 ```
 
 
-
 # Installation
 
 ### pip
@@ -37,6 +36,13 @@ make test
 
 
 # Usage
+```python
+from nr_common.pickler import read_pickle, write_pickle
+from nr_common.mproc import mproc_func, mproc_async
+from nr_common.configreader import config_from_path, config_from_env
+
+from nr_common.blueprints.job_status import job_status_handler, db
+```
 
 
 # Examples
