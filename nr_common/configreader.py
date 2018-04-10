@@ -1,11 +1,16 @@
-# !/usr/bin/env python
-# -*- coding: utf-8 -*-
-"""Read config and use it everywhere."""
+"""Config read and write.
+
+################################################################################
+# Modules required
+################################################################################
+* config_from_path
+  - ruamel.yaml
+  - trafaret_config
+* read_config
+  - pyyaml
+"""
 import os
 import sys
-
-import ruamel.yaml
-from trafaret_config import read_and_validate
 
 
 def config_from_path(filepath, config_schema=None):
@@ -31,6 +36,8 @@ def config_from_path(filepath, config_schema=None):
     Return:
         config json
     """
+    import ruamel.yaml
+    from trafaret_config import read_and_validate
     if config_schema is None:
         with open(filepath) as stream:
             config = ruamel.yaml.load(stream, ruamel.yaml.RoundTripLoader)
@@ -69,3 +76,17 @@ def config_from_env(key, config_schema=None):
         raise AttributeError('Key {} does not exist in environment.'.format(key))
 
     return config_from_path(filepath, config_schema)
+
+
+def read_config(config_filename):
+    """Read and return config from filename.
+
+    Args:
+        config_filename (str): Path to config file
+    Returns:
+        dict: Config file as a dictionary.
+    """
+    import yaml
+    with open(config_filename, 'r') as f:
+        config = yaml.load(f)
+    return config

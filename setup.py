@@ -18,8 +18,7 @@ def get_version():
                          version_file.read()).group('version')
 
 
-install_requires = ['future', 'ruamel.yaml>=0.15.35']
-
+install_requires = ['future', 'ruamel.yaml>=0.15.35', 'trafaret_config>=1.0.1', 'pyyaml>=3.12']
 
 test_requires = ['pytest', 'pytest-sugar', 'pytest-asyncio', 'pytest-cov', ]
 
