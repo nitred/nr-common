@@ -38,10 +38,6 @@ setup(
     url="https://github.com/nitred/nr-common",
     download_url="https://github.com/nitred/nr-common/archive/{}.tar.gz".format(get_version()),
     classifiers=[
-        "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 2.7",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6", ]
 )
