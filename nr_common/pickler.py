@@ -11,7 +11,7 @@ except Exception as ex:
     import pickle
 
 
-def write_pickle(obj, filename):
+def write_pickle(obj, filename, encoding='ASCII'):
     """Write an object to file as a pickle.
 
     No error handling is done by this function!
@@ -24,11 +24,11 @@ def write_pickle(obj, filename):
         None
     """
     pickle.dump(obj,
-                open(filename, "wb"),
+                open(filename, 'wb'),
                 protocol=pickle.HIGHEST_PROTOCOL)
 
 
-def read_pickle(filename):
+def read_pickle(filename, encoding='ASCII'):
     """Read an object from a pickle file.
 
     No error handling is done by this function!
@@ -40,6 +40,6 @@ def read_pickle(filename):
         any (obj): Object within the file. It can be of any type.
     """
     with open(filename, 'rb') as f:
-        obj = pickle.load(f)
+        obj = pickle.load(f, encoding=encoding)
 
     return obj
