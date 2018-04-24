@@ -4,11 +4,11 @@ import math
 from collections import namedtuple
 
 import cv2
+import numpy as np
 
 import nr_common.image_utils.image_utils as image_utils
 import nr_common.image_utils.image_utils_cv2 as cv2_utils
 import nr_common.image_utils.image_utils_pil as pil_utils
-import numpy as np
 
 logger = logging.getLogger(__name__)
 
@@ -86,8 +86,9 @@ def load_image(image_filename, scale=255, channel_order="RGB", shape_order="HWC"
         image = image_utils.resize_image_if_exceeds_max_area(image, max_area)
 
     if scale == 1:
-        # TODO: Rescale
-        raise NotImplementedError
+        # The assumption is that image will always be scaled at 255 when it reaches here since all libraries
+        # i.e. PIL and OpenCV read images from files at 255 scale.
+        image = image / 255.0
 
     if shape_order == "CHW":
         # TODO: Transform
