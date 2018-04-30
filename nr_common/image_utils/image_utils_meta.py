@@ -6,9 +6,9 @@ from collections import namedtuple
 import cv2
 import numpy as np
 
-import nr_common.image_utils.image_utils as image_utils
-import nr_common.image_utils.image_utils_cv2 as cv2_utils
-import nr_common.image_utils.image_utils_pil as pil_utils
+from nr_common.image_utils import image_utils as image_utils
+from nr_common.image_utils import image_utils_cv2 as cv2_utils
+from nr_common.image_utils import image_utils_pil as pil_utils
 
 logger = logging.getLogger(__name__)
 
