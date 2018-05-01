@@ -7,4 +7,5 @@ dependencies:
   - future
   - twine
   - m2r
+  - -r requirements_dev.txt
   - -r requirements.txt
