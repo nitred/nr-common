@@ -1,9 +1,0 @@
-cython
-ruamel.yaml>=0.15.35
-trafaret_config>=1.0.1
-pyyaml>=3.12
-Flask
-Flask-SQLAlchemy
-opencv-python
-numpy
-Pillow
