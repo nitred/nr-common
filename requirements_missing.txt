@@ -3,3 +3,5 @@ Flask-SQLAlchemy
 opencv-python
 numpy
 Pillow
+requests
+tqdm
