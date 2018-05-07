@@ -35,7 +35,30 @@ dtype (type): The type of the output array. Can be numpy types such as np.float3
 
 
 def add_meta_to_image(image, scale=None, channel_order=None, shape_order=None, dtype=None, meta_type=None):
-    """."""
+    """Add metadata to an image-ndarray and return an ImageWithMeta object.
+
+    Args:
+        image (np.ndarray): The 3D image array.
+        scale (int): Either 1 or 255.
+            If 1  , then it means the image has pixel values in the range [0, 1]
+            If 255, then it means the image has pixel values in the range [0, 255]
+        channel_order (str): "RGB" or "BGR". "grayscale" is currently not supported.
+            "RGB": It means the image is a color image with channel order RGB
+            "BGR": It means the image is a color image with channel order BGR
+        shape_oder (str): "HWC". Currently only "HWC" is supported.
+            "HWC": It means the 3 dimensions of the image represent Height-Width-Channels.
+            "CHW": It means the 3 dimensions of the image represent Channels-Height-Width.
+        dtype (str / np.dtype): A string or numpy.dtype that represents the dtype of the image array.
+        meta_type (MetaType): (OPTIONAL) A named object that contains some pre-defined set of meta information.
+            You can choose some pre-defined meta-types:
+                * META_TYPE_CV2
+                * META_TYPE_CAFFE
+            You can create your own MetaType in case you have some standardized image format and then pass
+            it to this function.
+                * `my_meta_type = MetaType(scale, channel_order, shape_oder, dtype)`
+
+            NOTE: If you use `meta_type` do not pass other arguments i.e. scale, channel_order, shape_oder, dtype.
+    """
     if meta_type:
         scale = meta_type.scale
         channel_order = meta_type.channel_order
