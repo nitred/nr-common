@@ -6,7 +6,7 @@ Common python functionalities aimed to be at least compatible with Python3.
 
 #### Current Stable Version
 ```
-0.1.5
+0.1.6
 ```
 
 #### Dependency Installation
